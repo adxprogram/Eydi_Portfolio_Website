@@ -59,18 +59,15 @@ body {
 nav {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 1px 8%;
-    
+    justify-content: center; /* This centers the UL perfectly */
+    padding: 20px 8%;
     position: fixed;   
     top: 0;          
     left: 0;      
     width: 100%;      
     z-index: 1000;   
-
-	background: transparent;
-    backdrop-filter: blur(0px);
-    transition: all 0.4s ease; /* This makes the blur fade in smoothly */
+    background: transparent;
+    transition: all 0.4s ease;
 }
 
 nav.scrolled {
@@ -86,14 +83,28 @@ nav.scrolled {
     vertical-align: middle; 
 }
 
+.logo-container {
+    position: absolute;
+    left: 8%; /* Matches your nav padding */
+    display: flex;
+    align-items: center;
+}
+
 span{
 	color: #f9004d;
 }
 
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
 nav ul li {
-	list-style-type: none;
-	display: inline-block;
-	padding: 10px 25px;
+    list-style-type: none;
+    display: inline-block;
+    padding: 10px 25px;
 }
 
 nav ul li a {
@@ -104,6 +115,10 @@ nav ul li a {
     position: relative; 
 }
 
+nav > .btn {
+    position: absolute;
+    right: 8%; /* Matches your nav padding */
+}
 
 nav ul li a::after {
     content: "";
@@ -1278,45 +1293,158 @@ html {
 }
 
 
-
+#check {
+    display: none;
+    visibility: hidden;
+    position: absolute;
+}
 
 /* MEDIA QUERY */
 /* INDEX.HTML */
 /* --- RESPONSIVE NAVIGATION --- */
 
-.checkbtn {
-    font-size: 30px;
-    color: white;
-    cursor: pointer;
-    display: none; /* Hidden on desktop */
-}
-
-#check {
-    display: none; /* Always hide the actual checkbox */
-}
-
 @media (max-width: 850px) {
     .checkbtn {
-        display: block; /* Show burger on mobile */
-        order: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 24px; /* Increased from 20px to 24px for better spacing */
+        cursor: pointer;
+        z-index: 1100;
+        transition: transform 0.4s ease;
+        padding: 2px 0; /* Ensures the bars aren't touching the very edge */
     }
 
+    .bar {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background: white;
+        border-radius: 3px;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Smoother animation */
+        transform-origin: center; /* Ensures they rotate around their own middle */
+    }
+
+    #check:checked ~ .checkbtn {
+    transform: none; 
+    }
+    
+    /* --- THE TRANSFORMATION --- */
+
+    /* When checked, rotate to vertical */
+    #check:checked ~ .checkbtn {
+        transform: rotate(90deg);
+    }
+
+    /* Merge all bars into a single solid pink line */
+    #check:checked ~ .checkbtn .bar {
+        background: #f9004d;
+    }
+
+#check:checked ~ .checkbtn .bar:nth-child(1) {
+    /* Move to center AND rotate 90 degrees */
+    transform: translateY(10.5px) rotate(90deg); 
+    background: #f9004d;
+}
+
+#check:checked ~ .checkbtn .bar:nth-child(2) {
+    opacity: 0;
+    transform: scale(0); /* Shrink it out of existence */
+}
+
+#check:checked ~ .checkbtn .bar:nth-child(3) {
+    /* Move to center AND rotate 90 degrees */
+    transform: translateY(-10.5px) rotate(90deg);
+    background: #f9004d;
+}
+
+    #check {
+        display: none; /* Always hide the actual checkbox */
+    }
+
+
     nav {
-        padding: 10px 5%;
+        height: 70px; /* Explicitly set height to make alignment easier */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 5%;
+        position: fixed; /* Ensure nav is always at the top */
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .logo-container {
+        position: static; /* Reverts the absolute positioning from desktop */
+        flex: 1;
     }
 
     nav ul {
         position: fixed;
-        width: 100%;
+        width: 60%; /* Changed from 100% to a side-drawer look, or keep 100% if you prefer */
         height: 100vh;
-        background: #101010;
-        top: 70px; /* Adjust based on your nav height */
-        left: -100%; /* Hidden by default */
-        text-align: center;
-        transition: all .5s;
+        
+        /* MATCH THE NAV HEIGHT: Matches the 70px height above */
+        top: 70px; 
+        
+        /* SEMI-TRANSPARENT BACKGROUND: Blends with your scrolled nav */
+        background: rgba(16, 16, 16, 0.98); 
+        
+        left: -100%; 
+        transition: all .5s ease;
         display: flex;
         flex-direction: column;
-        padding-top: 50px;
+        padding-top: 20px;
+        
+        /* BOX SHADOW: Adds depth so it doesn't just "end" abruptly */
+        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .btn {
+        background-color: #f9004d;
+        color: white !important; /* Ensure it stays white */
+        text-decoration: none;
+        border: 2px solid transparent;
+        font-weight: bold;
+        padding: 10px 25px;
+        border-radius: 30px;
+        transition: transform .4s;
+        display: inline-block;
+    }
+
+    /* 4. SLIDE THE BUTTON IN when the checkbox is checked */
+    #check:checked ~ .btn {
+        left: 0; /* Slides in alongside the menu */
+    }
+
+    /* 5. Cleanup the specific mobile button style */
+    .btn {
+        display: block !important;
+        position: fixed;
+        left: -100%; 
+        top: 560px;  
+        bottom: auto; 
+
+        /* ADJUST THIS: To center it in a 60% width menu */
+        width: 140px;
+        margin-left: 5%; 
+        
+        transition: all .5s ease;
+        text-align: center;
+        z-index: 1000;
+        
+        background: #f9004d;
+        border-radius: 30px;
+        padding: 12px 0;
+        font-weight: bold;
+        font-size: 15px;
+        color: white;
+    }
+
+    #check:checked ~ .btn {
+        left: 0;
     }
 
     nav ul li {
@@ -1409,6 +1537,44 @@ html {
         overflow: hidden;
     }
 
+    footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 40px; /* Space so button doesn't look cramped */
+    }
+
+    .footer-line {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    .end {
+        font-size: 11px;             /* Smaller for mobile */
+        text-align: center;           /* Align text to the left */
+        width: 100%;                /* Full width container */
+        padding-left: 20px;         /* Move it away from the very left edge */
+        padding-right: 60px;        /* CRITICAL: Creates a dead-zone on the right for the button */
+        display: block;
+        box-sizing: border-box;     /* Keeps padding inside the width calculation */
+    }
+
+    .back-to-top {
+        bottom: 20px;            /* Stick to bottom */
+        right: 30px;             /* Stick to right */
+        width: 40px;             /* Slightly smaller for mobile */
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .back-to-top img {
+        width: 20px;             /* Shrink the arrow icon slightly */
+    }
+
+
+
     footer p:nth-child(2) {
         width: 90%; 
         margin: 0 auto 20px auto; /* Centers it and adds space below */
@@ -1428,5 +1594,12 @@ html {
 
     .hero-background {
         cursor: default; /* Returns the cursor to normal since glow is gone */
+    }
+
+    .whatsapp-float {
+        bottom: 80px;            /* Move WhatsApp higher up */
+        right: 20px;
+        width: 50px;
+        height: 50px;
     }
 }
