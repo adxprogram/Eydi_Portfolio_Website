@@ -280,3 +280,14 @@ window.addEventListener('scroll', () => {
 document.addEventListener('DOMContentLoaded', () => {
     initCarousel();
 });
+
+
+// MEDIA QUERY RESPONSIVE INDEX.HTML
+const navLinks = document.querySelectorAll('nav ul li a');
+const checkbox = document.getElementById('check');
+
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        checkbox.checked = false;
+    });
+});
