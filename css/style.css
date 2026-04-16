@@ -90,36 +90,6 @@ span{
 	color: #f9004d;
 }
 
-nav ul {
-        position: fixed;
-        width: 100%;
-        height: 100vh;
-        background: #101010;
-        
-        /* Increase this more to see a visible gap from the header */
-        top: 100px; 
-        
-        left: -100%; 
-        text-align: center;
-        transition: all .5s;
-        display: flex;
-        flex-direction: column;
-        
-        /* This pushes the links down inside the black box */
-        padding-top: 40px; 
-        
-        /* Add this to ensure no weird borders are showing */
-        border: none;
-        outline: none;
-    }
-
-
-nav {
-        height: 80px; 
-        display: flex;
-        align-items: center;
-    }
-
 nav ul li {
 	list-style-type: none;
 	display: inline-block;
@@ -1327,7 +1297,7 @@ html {
 
 @media (max-width: 850px) {
     .checkbtn {
-        display: block; 
+        display: block; /* Show burger on mobile */
         order: 2;
     }
 
@@ -1340,8 +1310,8 @@ html {
         width: 100%;
         height: 100vh;
         background: #101010;
-        top: 70px; 
-        left: -100%; 
+        top: 70px; /* Adjust based on your nav height */
+        left: -100%; /* Hidden by default */
         text-align: center;
         transition: all .5s;
         display: flex;
@@ -1359,17 +1329,20 @@ html {
         font-size: 20px;
     }
 
+    /* The Magic: When checkbox is checked, slide the menu in */
     #check:checked ~ ul {
         left: 0;
     }
 
+    /* Hide the 'Get in touch' button on mobile to save space, 
+       or move it inside the UL */
     .btn.header-cta {
         display: none;
     }
     
-    /* Center the Hero Text */
+    /* Adjust Hero Content for mobile */
     h1 {
-        font-size: 40px; 
+        font-size: 40px; /* Smaller for better fit */
         margin: 10px 0;
     }
 
@@ -1379,43 +1352,47 @@ html {
     }
 
     .content {
-        left: 50%; /* Start at the horizontal center */
-        top: 50%;  /* Start at the vertical center */
-        transform: translate(-50%, -50%); /* Pull back by half its own size to hit dead center */
+        left: 5%;
+        right: 5%;
         width: 90%;
-        text-align: center; /* Centers the text lines */
+        /* Move it up slightly so it doesn't look drowned in the black space */
+        top: 40%; 
+        transform: translateY(-40%);
+        text-align: left; /* Change to center if you prefer that look without the photo */
         display: flex;
         flex-direction: column;
-        align-items: center; /* Centers the newsletter form and child elements */
+        align-items: flex-start; /* Change to center if text-align is center */
     }
 
     .contact-me {
-        height: auto;
-        padding: 60px 20px;
+        height: auto;           /* Allow the container to grow with the text */
+        padding: 60px 20px;     /* Give it some breathing room top and bottom */
         text-align: center;
     }
 
     .contact-me p {
-        font-size: 24px;
-        line-height: 1.4;
+        font-size: 24px;        /* Slightly smaller font to prevent horizontal scrolling */
+        line-height: 1.4;       /* Better spacing for multi-line text */
         margin-bottom: 30px;
-        width: 100%;
+        width: 100%;            /* Ensure it stays within the screen width */
     }
 
     .contact-me .button-two {
-        padding: 12px 25px;
+        padding: 12px 25px;     /* Slightly smaller button for mobile ergonomics */
         font-size: 16px;
     }
 
+
+    /* Fix the newsletter container */
     .newslatter form {
-        width: 100%;
-        max-width: 380px; /* Limits width so it doesn't look too stretched on wide tablets */
+        width: 100%; /* Make it fill the 90% container */
+        max-width: 100%;
         display: block;
-        margin: 0 auto;
     }
 
+    /* Fix the input field and button sizing */
     .newslatter form input:first-child {
-        padding: 12px 100px 12px 15px; 
+        padding: 12px 100px 12px 15px; /* Slightly shorter for mobile */
         font-size: 14px;
     }
 
@@ -1426,20 +1403,30 @@ html {
         right: 5px;
     }
 
+    /* Keep the hero section from scrolling horizontally */
     .hero-background {
         height: 100vh;
         overflow: hidden;
-        cursor: default;
     }
 
     footer p:nth-child(2) {
         width: 90%; 
-        margin: 0 auto 20px auto;
+        margin: 0 auto 20px auto; /* Centers it and adds space below */
+        
+        /* Improves readability on mobile */
         font-size: 15px; 
         line-height: 1.5;
     }
 
-    .hero-image, .cursor-glow {
-        display: none !important;
+    .hero-image {
+        display: none !important; /* Removes your photo */
+    }
+
+    .cursor-glow {
+        display: none !important; /* Removes the red glowing follow-effect */
+    }
+
+    .hero-background {
+        cursor: default; /* Returns the cursor to normal since glow is gone */
     }
 }
