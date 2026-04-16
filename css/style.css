@@ -777,7 +777,7 @@ html {
 .video-container {
     width: 85%;
     max-width: 1100px;
-    margin-top: 40px;
+    margin: 80px auto 0 auto;
     border-radius: 24px;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -867,7 +867,7 @@ html {
     display: inline-block;
     width: 100%;
     text-align: center;
-    margin-top: 200px; /* Space below the video */
+    margin-top: 300px; /* Space below the video */
 
     /* Link to the new REVERSE animation */
     animation: auto-scroll-reverse linear both;
@@ -894,7 +894,13 @@ html {
     }
 }
 
-
+.scrolling-text, 
+.scrolling-text-reverse {
+    line-height: 1;      /* Prevents extra vertical spacing */
+    margin-bottom: 20px; /* Forces a gap between the text and the video/content below */
+    display: block;      /* Ensures it takes up its own row */
+    font-size: clamp(3rem, 12vw, 10rem);
+}
 
 
 
