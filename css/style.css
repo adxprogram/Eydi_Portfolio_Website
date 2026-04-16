@@ -1342,22 +1342,22 @@ html {
         background: #f9004d;
     }
 
-#check:checked ~ .checkbtn .bar:nth-child(1) {
-    /* Move to center AND rotate 90 degrees */
-    transform: translateY(10.5px) rotate(90deg); 
-    background: #f9004d;
-}
+    #check:checked ~ .checkbtn .bar:nth-child(1) {
+        /* Move to center AND rotate 90 degrees */
+        transform: translateY(10.5px) rotate(90deg); 
+        background: #f9004d;
+    }
 
-#check:checked ~ .checkbtn .bar:nth-child(2) {
-    opacity: 0;
-    transform: scale(0); /* Shrink it out of existence */
-}
+    #check:checked ~ .checkbtn .bar:nth-child(2) {
+        opacity: 0;
+        transform: scale(0); /* Shrink it out of existence */
+    }
 
-#check:checked ~ .checkbtn .bar:nth-child(3) {
-    /* Move to center AND rotate 90 degrees */
-    transform: translateY(-10.5px) rotate(90deg);
-    background: #f9004d;
-}
+    #check:checked ~ .checkbtn .bar:nth-child(3) {
+        /* Move to center AND rotate 90 degrees */
+        transform: translateY(-10.5px) rotate(90deg);
+        background: #f9004d;
+    }
 
     #check {
         display: none; /* Always hide the actual checkbox */
@@ -1601,5 +1601,94 @@ html {
         right: 20px;
         width: 50px;
         height: 50px;
+    }
+
+
+    /* ABOUT SECTION */
+    /* 1. Stack the About Section vertically */
+    .about .main {
+        display: flex;
+        flex-direction: column; /* Stacks image and text */
+        align-items: center;    /* Centers everything horizontally */
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .about .main img {
+        order: 1;               /* Forces image to be first */
+        width: 100%;            /* Scaled up for mobile */
+        max-width: 320px;       /* Keeps it from becoming too giant */
+        margin-bottom: 30px;    /* Space between image and 'About Me' */
+        height: auto;
+    }
+
+    /* 3. Style the Text Content */
+    .about-text {
+        order: 2;               /* Forces text to be second */
+        width: 100%;
+    }
+
+    .about-text h2 {
+        font-size: 35px;
+        margin-bottom: 10px;
+    }
+
+    .about-text h5 {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .about-text p {
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 30px;
+        padding: 0 15px;      /* Adds a little breathing room on the sides */
+        
+        /* THE FIX */
+        text-align: justify;  
+        
+        /* Optional: prevents awkward gaps in justified text */
+        hyphens: auto;        
+        order: 2;
+    }
+
+    .scrolling-text {
+        margin-top: 40px;
+        margin-bottom: 85px;
+        font-size: 32px;
+        text-align: center;
+        transform: none !important;
+    }
+
+    /* 2. Lower the 'Achievements' heading */
+    .scrolling-text-reverse {
+        margin-top: 80px;      /* Increased from 40px to push it down */
+        font-size: 32px;
+        text-align: center;
+        transform: none !important;
+        display: block;
+        width: 100%;
+        color: white;
+        text-transform: uppercase;
+    }
+
+    /* Ensure the video container has no top margin to stay close to the heading */
+    .video-container {
+        margin-top: 0;
+    }
+
+    .certificate-container {
+        display: flex;
+        flex-direction: column; /* Stacks image top, text bottom */
+        align-items: center;
+        padding: 20px;
+        width: 100%;
+    }
+
+    .cert-slider {
+        width: 100%;
+        max-width: 350px;
+        position: relative;
+        margin-bottom: 20px;
     }
 }

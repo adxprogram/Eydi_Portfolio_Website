@@ -274,20 +274,20 @@ if (activeCert && modal) {
 
 // SCROLL ANIMATION
 window.addEventListener('scroll', () => {
-    const demoSection = document.querySelector('.demo-reel-section');
-    const demoText = document.querySelector('.scrolling-text');
-    const demoTextReverse = document.querySelector('.scrolling-text-reverse');
+    const scrollText = document.querySelector('.scrolling-text');
+    const scrollPosition = window.scrollY;
+    
+    // Get the vertical position of the element relative to the top of the page
+    const elementTop = scrollText.offsetTop;
+    const viewportHeight = window.innerHeight;
 
-    if (demoSection && demoText) {
-        const rect = demoSection.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-        if (rect.top < windowHeight && rect.bottom > 0) {
-            const scrollPercentage = (windowHeight - rect.top) / (windowHeight + rect.height);
-            demoText.style.transform = `translateX(${100 - scrollPercentage * 200}%)`;
-            if (demoTextReverse) {
-                demoTextReverse.style.transform = `translateX(${-100 + scrollPercentage * 200}%)`;
-            }
-        }
+    // Only start moving when the element is near the bottom of the screen
+    if (scrollPosition > elementTop - viewportHeight) {
+        // We subtract elementTop so the 'translateX' starts near 0 when it first appears
+        let moveSpeed = (scrollPosition - elementTop + viewportHeight / 2) * 0.2;
+        
+        // Apply the transform
+        scrollText.style.transform = `translateX(${moveSpeed}px)`;
     }
 });
 
@@ -295,6 +295,7 @@ window.addEventListener('scroll', () => {
 document.addEventListener('DOMContentLoaded', () => {
     initCarousel();
 });
+
 
 
 // MEDIA QUERY RESPONSIVE INDEX.HTML
