@@ -1691,4 +1691,127 @@ html {
         position: relative;
         margin-bottom: 20px;
     }
+
+    /* SERVICE SECTION service.html MEDIA QUERY*/
+
+    .title h2 {
+	color: white;
+	font-size: 35px;
+	width: 100%;
+	margin: 30px auto;
+	text-align: center;
+
+    display: block;
+    opacity: 0;
+    
+    /* Animation: name, duration, timing-function, delay, fill-mode */
+    animation: h1SlideUp .5s ease-out 0.3s forwards;
+	padding-bottom: 10px;
+    }
+
+    @keyframes h2SlideUp {
+        0% {
+            transform: translateY(30px);
+            opacity: 0;
+        }
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    .services-container,
+    .box-container {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center;
+        gap: 30px;         
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    .services-container {
+        grid-template-columns: unset !important;   
+        flex-wrap: nowrap !important;            
+    }
+
+    .services-container .card {
+        width: 90% !important;
+        max-width: 350px;
+        margin: 0 auto;
+        display: block !important;
+        flex-shrink: 0;     
+    }
+
+    .box {
+        flex-direction: column !important;  
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+        max-width: 350px;
+        height: auto;        
+        margin: 10px auto;
+    }
+
+    .card i,
+    .card img {
+        margin-bottom: 15px;
+    }
+
+    .card h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .card p {
+        font-size: 15px;
+        line-height: 1.6;
+        text-align: center;
+    }
+
+        /* Services | Testimonial section */
+    .testimonial-section {
+        padding: 50px 0;
+        gap: 20px;
+    }
+
+    .testimonial-section h2 {
+        text-align: center;
+        font-size: 32px;
+        margin-bottom: 10px;
+        padding: 0 10px;
+    }
+
+    .marquee-wrapper {
+        width: 100%;
+    }
+
+    /* ← THIS is the main fix */
+    .review-card {
+        width: 250px;        /* smaller fixed width for mobile */
+        min-height: unset;   /* remove forced height */
+        padding: 20px;
+        margin: 0 10px;
+    }
+
+    .review-card p {
+        font-size: 13px;
+        margin-bottom: 15px;
+    }
+
+    .stars {
+        font-size: 14px;
+    }
+
+    .user-img {
+        width: 36px;
+        height: 36px;
+        font-size: 13px;
+    }
+
+    .user span {
+        font-size: 12px;
+    }
 }
