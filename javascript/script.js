@@ -122,7 +122,9 @@ if (form && btn) {
 
 // PARTICLE GRID (index.html only)
 const container = document.getElementById('particle-container');
-if (container && typeof THREE !== 'undefined') {
+
+// Only initialize if container exists, THREE is loaded, AND screen is desktop width
+if (container && typeof THREE !== 'undefined' && window.innerWidth > 850) {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 2000);
     const renderer = new THREE.WebGLRenderer({ alpha: true });
@@ -158,6 +160,12 @@ if (container && typeof THREE !== 'undefined') {
     });
 
     function animate() {
+        // Stop the animation loop if the window is resized to mobile width later
+        if (window.innerWidth <= 850) {
+            container.style.display = 'none';
+            return; 
+        }
+
         requestAnimationFrame(animate);
         camera.position.x += (mouseX - camera.position.x) * 0.05;
         camera.position.y += (-mouseY + 400 - camera.position.y) * 0.05;
@@ -171,7 +179,14 @@ if (container && typeof THREE !== 'undefined') {
         camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
     });
+} else if (container) {
+    // Hide the container explicitly if we are on mobile from the start
+    container.style.display = 'none';
 }
+
+
+
+
 
 // CERTIFICATE CAROUSEL
 const certificates = [

@@ -555,7 +555,7 @@ footer p:nth-child(2){
 .back-to-top {
     position: absolute; 
     bottom: 20px;
-    right: 8%;
+    right: 20px;
     
     background: #f9004d;
     width: 45px;
@@ -1054,7 +1054,7 @@ html {
   position: fixed;
   width: 60px;
   height: 60px;
-  bottom: 20px;
+  bottom: 80px;
   right: 20px;
   background-color: white;
   color: #FFF;
@@ -1335,17 +1335,12 @@ html {
         font-size: 40px; /* Shrink the title so it doesn't push the width */
         word-wrap: break-word;
     }
-    
-    .hero-image {
-            width: 100%;
-            right: -10%; /* If you want it slightly off-screen, ensure overflow-x is hidden */
-    }
 
     .content {
-        left: 5%;
-        right: 5%; 
+        left: 50%;
+        transform: translate(-50%, -50%); /* Centers the text perfectly */
+        text-align: center;
         width: 90%;
-        transform: translateY(-50%); /* Keeps it vertically centered */
     }
 
     .contact-me {
@@ -1364,5 +1359,26 @@ html {
     .contact-me .button-two {
         padding: 12px 25px;     /* Slightly smaller button for mobile ergonomics */
         font-size: 16px;
+    }
+
+    footer p:nth-child(2) {
+        width: 90%; 
+        margin: 0 auto 20px auto; /* Centers it and adds space below */
+        
+        /* Improves readability on mobile */
+        font-size: 15px; 
+        line-height: 1.5;
+    }
+
+    .hero-image {
+        display: none !important; /* Removes your photo */
+    }
+
+    .cursor-glow {
+        display: none !important; /* Removes the red glowing follow-effect */
+    }
+
+    .hero-background {
+        cursor: default; /* Returns the cursor to normal since glow is gone */
     }
 }
