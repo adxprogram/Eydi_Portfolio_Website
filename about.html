@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Eydi | About</title>
+	<link rel="icon" type="image/x-icon" href="images/header_logo_eydi.svg">
+</head>
+
+<body>
+
+	<!-- hero section start -->
+	<div class="hero">
+		<nav>
+			<div class="logo-container">
+				<a href="index.html">
+				<img class="logo" src="images/header_logo_eydi.svg" alt="Eydi Logo">
+				</a>
+			</div>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="services.html">Services</a></li>
+				<li><a href="project.html">project</a></li>
+				<li><a href="contact.html">Contact</a></li>
+			</ul>
+			<a href="mailto:adriandc.santantiago22@email.com" class="btn">Get in touch</a>
+		</nav>	
+	</div>
+	
+	<!-- About Section Start -->
+	<section class="about">
+		<div class="main">
+			<img src="images/about-image.png">
+			<div class="about-text">
+				<h2>About Me</h2>
+				<h5>Web Developer <span>& Video Editor</span></h5>
+				<p>I am a passionate creative with a year of experience specializing
+				in video editing and web design. Currently in my second year of diving 
+				deep into the digital space, I focus on blending visual storytelling with 
+				functional code. Whether I’m cutting together cinematic sequences or building 
+				responsive layouts, my goal is to deliver clean, engaging, and pixel-perfect 
+				results that work seamlessly across all devices.</p>
+			<a href="mailto:adriandc.santantiago22@email.com"><button type="button">Let's Talk</button></a>
+			</div>
+		</div>
+	</section>
+	
+	<!-- Demo Reel Section -->
+	<div class="demo-reel-section">
+		<h2 class="scrolling-text">MY DEMO REEL</h2>
+		
+		<div class="video-container">
+			<video muted loop playsinline controls class="demo-video">
+				<source src="images/demo_reel_sample.mp4" type="video/mp4">
+				Your browser does not support the video tag.
+			</video>
+		</div>
+
+    <h2 class="scrolling-text-reverse">ACHIEVEMENTS</h2>
+
+	<!-- CERTIFICATE CAROUSEL -->
+		<div class="certificate-container">
+			<div class="cert-slider">
+				<button class="arrow left-arrow" onclick="changeCert(-1)">&#10094;</button>
+				
+				<div class="cert-image-wrapper">
+					<img id="active-cert" src="images/CodeSignal_Cert.png" alt="Certificate">
+				</div>
+
+				<button class="arrow right-arrow" onclick="changeCert(1)">&#10095;</button>
+			</div>
+
+			<div class="cert-description">
+				<h3 id="cert-title">Specialization Title</h3>
+				<p id="cert-text">Description goes here.</p>
+				<a id="cert-button" 
+				href="https://codesignal.com/learn/profile/cmkqy6p360004k304m5n9ylts" 
+				target="_blank" 
+				class="btn-see-more">See More</a>
+			</div>
+
+			<div id="image-modal" class="modal">
+				<span class="close-modal">&times;</span>
+				<img class="modal-content" id="img-zoom">
+			</div>
+		</div>
+	</div>
+	
+	<!-- Contact Me -->
+	<div class="contact-me">
+		<p>Let Me Get You A Beautiful Website.</p>
+		<a class="button-two" href="contact.html">Start a Project</a>
+	</div>
+	
+	<!-- footer start -->
+	<footer>
+		<p>Adrian Santiago</p>
+		<p>For more video project & website samples - please click on the link below to subscribe to my channel:</p>
+		<div class="social">
+			<a href="https://www.facebook.com/adriandc.santiago/" target="_blank"  rel="noopener noreferrer"><img src="./images/facebook.png" alt="Facebook"></a>
+			<a href="https://www.instagram.com/theeditoradrian/" target="_blank"  rel="noopener noreferrer"><img src="./images/instagram.png" alt="Instagram"></a>
+			<a href="https://github.com/adxprogram" target="_blank"  rel="noopener noreferrer"><img src="./images/github.png" alt="GitHub"></a>
+		</div>
+
+		<hr class="footer-line">
+		<a class="end">Copyright © 2026 By Adrian Santiago</a>
+
+		<a href="#" class="back-to-top">
+			<img src="./images/up-arrows.png" alt="Back to top">
+		</a>
+	</footer>
+
+	<a href="https://wa.me/639765764144" class="whatsapp-float" target="_blank">
+		<img src="images\whatsapp_logo.png" alt="Chat with us on WhatsApp" />
+	</a>
+
+	<script src="javascript/script.js"></script>
+</body>
+
+
+</html>
+
+

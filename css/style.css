@@ -1,0 +1,1249 @@
+@font-face {
+    font-family: 'Josefin Sans';
+    src: url('../fonts/JosefinSans-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 700;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+
+*{
+	padding: 0;
+	margin: 0;
+	font-family: 'Josefin Sans', sans-serif;
+	box-sizing: border-box;
+}
+
+.hero{
+	background-color: black;
+	background-size: cover;
+	background-position: 25% 15%;
+	background-color: #000000;
+}
+
+.hero-background {
+    background-color: #000;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    cursor: none;
+}
+
+.hero-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    
+    /* SET A SPECIFIC WIDTH, Like 60% or 70% of the screen */
+    width: 78%; 
+    height: auto; /* Keep the aspect ratio perfect */
+    
+    z-index: 5;
+    pointer-events: none;
+    
+    /* If you use width, you can remove the scale from transform */
+    transform: translateZ(0);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1px 8%;
+    
+    position: fixed;   
+    top: 0;          
+    left: 0;      
+    width: 100%;      
+    z-index: 1000;   
+
+	background: transparent;
+    backdrop-filter: blur(0px);
+    transition: all 0.4s ease; /* This makes the blur fade in smoothly */
+}
+
+nav.scrolled {
+    background: rgba(0, 0, 0, 0.7); 
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+.logo {
+    width: 90px;
+    height: auto;
+    cursor: pointer;
+    vertical-align: middle; 
+}
+
+span{
+	color: #f9004d;
+}
+
+nav ul li {
+	list-style-type: none;
+	display: inline-block;
+	padding: 10px 25px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: capitalize;
+    position: relative; 
+}
+
+
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    background: #f9004d;
+    height: 1px;     
+    width: 0;            
+  	left: 50%;
+    transform: translateX(-50%);
+    bottom: -14px;      
+    transition: 0.3s; 
+}
+
+
+nav ul li a:hover::after {
+    width: 100%;      
+}
+
+
+nav ul li a:hover {
+    color: #f9004d;
+}
+
+.btn {
+	background-color: #f9004d;
+	color: white;
+	text-decoration: none;
+	border: 2px solid transparent;
+	font-weight: bold;
+	padding: 10px 25px;
+	border-radius: 30px;
+	transition: transform .4s;
+}
+
+.btn:hover {
+	transform: scale(1.2);
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 8%;
+    transform: translateY(-50%);
+    z-index: 10; 
+}
+
+.content h1 {
+    display: block;
+    opacity: 0;
+    
+    /* Animation: name, duration, timing-function, delay, fill-mode */
+    animation: h1SlideUp .5s ease-out 0.3s forwards;
+	padding-bottom: 10px;
+}
+
+@keyframes h1SlideUp {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+h1{
+	color: white;
+	margin: 20px 0px 20px;
+	font-size: 75px;
+}
+
+h3{
+	color: white;
+	font-size: 25px;
+	margin-bottom: 50px;
+}
+
+
+.typing-text {
+    color: #f9004d; /* Use your signature pink color */
+    border-right: 3px solid #f9004d; /* The cursor */
+    padding-right: 5px;
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { border-color: transparent; }
+    50% { border-color: #f9004d; }
+}
+
+h4{
+	color: #fcfc;
+	letter-spacing: 2px;
+font-size: 20px;	
+}
+
+.newslatter form{
+	width: 380px;
+	max-width: 100%;
+	position: relative;
+}
+
+.newslatter form input:first-child{
+	display: inline-block;
+	width: 100%;
+	padding: 14px 130px 14px 15px;
+	border-radius: 30px;
+	border: 2px solid #f9004d;
+	outline: none;
+}
+
+.newslatter form input:last-child{
+	position: absolute;
+	display: inline-block;
+	padding: 10px 30px;
+	border-radius: 30px;
+	border: none;
+	outline: none;
+	background-color: #f9004d;
+	color: white;
+	top: 6px;
+	right: 6px;
+	cursor: pointer;
+}
+
+/* THE ANIMATION FOR LETS START TO SENT! */
+#submit-btn {
+    transition: all 0.3s ease;
+}
+
+
+#submit-btn:active {
+    transform: scale(0.95);
+}
+
+.about{
+	width: 100%;
+	padding: 100px 0px;
+	background-color: #191919;
+	padding-top: 150px;
+}
+
+.about h2{
+    display: block;
+    opacity: 0;
+    
+    /* Animation: name, duration, timing-function, delay, fill-mode */
+    animation: h2SlideUp .5s ease-out 0.3s forwards;
+	padding-bottom: 10px;
+}
+
+@keyframes h1SlideUp {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.about img{
+	height: auto;
+	width: 430px;
+	border-radius: 30px;
+}
+
+.about-text{
+	width: 550px;
+}
+
+.main{
+	width: 1130px;
+	max-width: 95%;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.about-text h2{
+	color: white;
+	font-size: 75px;
+	text-transform: capitalized;
+	margin-bottom: 20px;
+}
+
+
+.about-text h5{
+	color: white;
+	letter-spacing: 2px;
+	font-size: 22px;
+	margin-bottom: 25px;
+	text-transform: capitalize;
+}
+
+.about-text p{
+	color: #fcfc;
+	letter-spacing: 1px;
+	line-height: 28px;
+	font-size: 18px;
+	margin-bottom: 45px;
+}
+
+button{
+	background-color: #f9004d;
+	color: white;
+	text-decoration: none;
+	border: 2px solid transparent;
+	font-weight: bold;
+	padding: 13px 30px;
+	border-radius: 30px;
+	transition: .4s;
+}
+
+button:hover{
+	background-color: transparent;
+	border: 2px solid #f9004d;
+	cursor: pointer;
+}
+
+.pra p:last-child{
+	text-align: center;
+}
+
+.service{
+	background: #191919;
+	padding: 100px 0px;
+	width: 100%;
+}
+
+.title h2 {
+	color: white;
+	font-size: 75px;
+	width: 1130px;
+	margin: 30px auto;
+	text-align: center;
+
+    display: block;
+    opacity: 0;
+    
+    /* Animation: name, duration, timing-function, delay, fill-mode */
+    animation: h1SlideUp .5s ease-out 0.3s forwards;
+	padding-bottom: 10px;
+}
+
+@keyframes h2SlideUp {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.box{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 400px;
+}
+
+.card {
+    height: 420px;
+    width: 335px;
+    padding: 20px 35px;
+    background: #101010;
+    border-radius: 20px;
+    margin: 15px;
+    text-align: center;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card img{
+	width: 60px;
+	height: auto;
+	display: block;
+	margin: 25px auto;
+    filter: brightness(0) saturate(100%) invert(19%) sepia(94%) saturate(5431%) hue-rotate(338deg) brightness(96%) contrast(107%);
+}
+
+h5{
+	color: white;
+	font-size: 20px;
+	margin-bottom: 15px;
+}
+
+.pra {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.pra p:last-child {
+    margin-top: auto;
+    margin-bottom: 0;  
+    padding-bottom: 20px; 
+}
+
+.pra p{
+	color: #fcfc;
+	font-size: 16px;
+	line-height: 27px;
+	margin-bottom: 25px;
+}
+
+.card .button{
+	background-color: #f9004d;
+	color: white;
+	text-decoration: none;
+	border: 2px solid transparent;
+	font-weight: bold;
+	padding: 13px 22px;
+	border-radius: 30px;
+	transition: .4s;
+}
+
+.card .button:hover{
+	background-color: transparent;
+	border: 2px solid #f9004d;
+	cursor: pointer;
+}
+
+.contact-me{
+	width: 100%;
+	height: 290px;
+	background: #191919;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.contact-me p{
+	color: white;
+	font-size: 30px;
+	font-weight: bold;
+	margin-bottom: 25px;
+	
+	opacity: 0;
+	transform: translateY(50px);
+	transition: all 0.8s ease-out;
+}
+
+.contact-me p.appear {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.contact-me .button-two{
+	background-color: #f9004d;
+	color: white;
+	text-decoration: none;
+	border: 2px solid transparent;
+	font-weight: bold;
+	padding: 13px 30px;
+	border-radius: 30px;
+	transition: .4s;
+}
+
+.contact-me .button-two:hover{
+	background-color: transparent;
+	border: 2px solid #f9004d;
+	cursor: pointer;
+}
+
+footer {
+    width: 100%;
+    min-height: 400px;
+    background: #111;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    position: relative; 
+    
+    padding: 60px 0 20px 0;
+    text-align: center;
+}
+
+footer p:nth-child(1){
+	color: white;
+	font-size: 30px;
+	margin-bottom: 20px;
+	font-weight: bold;
+}
+
+footer p:nth-child(2){
+	color: white;
+	font-size: 17px;
+	width: 500px;
+	text-align: center;
+}
+
+.social {
+    display: flex;
+    justify-content: center;
+}
+
+.social img {
+    width: 22px;
+    height: auto;
+    object-fit: contain;
+	filter: brightness(0) invert(1);
+}
+
+.social a {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f9004d;
+    border-radius: 50%;
+    margin: 22px 10px;
+    transition: transform 0.3s ease;
+}
+
+.social a:hover {
+    transform: scale(1.2);
+}
+
+.footer-line {
+    width: 84%;
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 30px auto;
+}
+
+.end{
+	position: absolute;
+	color: #f9004d;
+	bottom: 35px;
+	font-size: 14px;
+}
+
+.back-to-top {
+    position: absolute; 
+    bottom: 20px;
+    right: 8%;
+    
+    background: #f9004d;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.back-to-top:hover {
+    transform: translateY(-5px);
+    background: white;
+}
+
+.back-to-top:hover img {
+	filter: invert(19%) sepia(94%) saturate(5431%) hue-rotate(338deg) brightness(96%) contrast(107%);
+}
+
+
+.back-to-top img {
+    width: 18px;
+    height: auto;
+    /* Use the filter trick if your PNG is black and you want it white */
+    filter: brightness(0) invert(1);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* CUSTOM CURSOR ON HERO*/
+.hero-background {
+    position: relative;
+    overflow: hidden;
+    cursor: none;
+}
+
+.hero-background a, 
+.hero-background button, 
+.hero-background input {
+    cursor: none;
+}
+
+
+
+.cursor-glow {
+    position: absolute;
+	z-index: 1;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(249, 0, 77, 0.4) 0%, rgba(249, 0, 77, 0) 70%);
+    border-radius: 50%;
+    pointer-events: none; 
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease, background 0.4s ease;
+    will-change: left, top; 
+}
+
+.cursor-glow.large {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(249, 0, 77, 0.6) 0%, rgba(249, 0, 77, 0) 70%);
+}
+
+
+#particle-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Behind hero-image (5) and content (10) */
+    pointer-events: none; /* So you can still click things */
+
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,1) 80%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,1) 80%);
+}
+
+#submit-btn {
+    cursor: pointer !important;
+}
+
+#mail {
+    cursor: text !important;
+}
+
+
+.testimonial-section {
+    background: #101010;
+    padding: 80px 0; /* Reduced padding slightly to align closer to service cards */
+    width: 100%;
+    overflow: hidden; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px; 
+}
+
+.testimonial-section h2 {
+    color: white;
+    font-size: 45px; /* Bigger heading */
+    font-weight: 700;
+}
+
+.testimonial-section h2 i {
+    color: #f9004d; /* Your pink */
+    font-style: italic;
+}
+
+.marquee-wrapper {
+    width: 90%;
+    max-width: 1300px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    mask-image: linear-gradient(to right,
+        transparent 0%,
+        black 18%,
+        black 82%,
+        transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(to right,
+        transparent 0%,
+        black 18%,
+        black 82%,
+        transparent 100%
+    );
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    /* SPEED: Changed from 30s to 20s for a faster, more energetic glide */
+    animation: scroll 20s linear infinite;
+}
+
+/* Ensure the track pauses correctly on hover */
+.marquee-wrapper:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Moves only half the track (one full set) */
+}
+
+/* Review Card Styling */
+.review-card {
+    background: #141414; /* Slightly darker to make the border pop */
+    width: 450px;
+    min-height: 220px; /* Ensures all cards stay the same height */
+    padding: 35px;
+    border-radius: 20px; /* More rounded for a modern look */
+    margin: 0 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: left;
+    flex-shrink: 0;
+    transition: all 0.4s ease; /* Smooth transition for the hover effect */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.stars { 
+    color: #f9004d; /* Changed from green to your pink */
+    font-size: 18px; 
+    text-shadow: 0 0 10px rgba(249, 0, 77, 0.3); /* Subtle pink glow on stars */
+}
+
+.review-card p {
+    color: #cecece;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.user-img {
+    width: 45px;
+    height: 45px;
+    background: #f9004d; /* Your pink background */
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.user span { color: white; font-size: 13px; line-height: 1.2; }
+
+
+
+/* Demo Reel Section on ABOUT HTML */
+
+.demo-reel-section {
+    background: #101010;
+    width: 100%;
+    min-height: 100vh; /* Takes up full screen height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 100px 0;
+}
+
+.video-container {
+    width: 85%;
+    max-width: 1100px;
+    margin-top: 40px;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+    /* Reveal Animation Settings */
+    animation: reveal-scroll linear both;
+    animation-timeline: view();
+    /* This starts the fade at the bottom (entry 0%) 
+       and finishes it by the time it's 40% up the screen */
+    animation-range: entry 0% cover 40%; 
+}
+
+.demo-video {
+    width: 100%;
+    display: block;
+    /* This makes the play/pause bar match your dark theme better */
+    color-scheme: dark; 
+}
+
+.demo-video:hover {
+    filter: brightness(1); /* Highlights on hover */
+}
+
+/* The Animation Keyframes */
+@keyframes reveal-scroll {
+    from {
+        opacity: 0;
+        transform: translateY(150px) scale(0.9);
+        filter: blur(10px); /* Optional: adds a nice 'camera focus' effect */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0px);
+    }
+}
+
+.scrolling-text {
+    font-size: clamp(4rem, 15vw, 12rem);
+    font-weight: 900;
+    white-space: nowrap;
+    text-transform: uppercase;
+    color: white;
+    display: inline-block;
+    width: 100%;
+    text-align: center; /* Ensures the text is centered when at 0% */
+
+    animation: auto-scroll ease-out both;
+    animation-timeline: scroll(root);
+    
+    /* This ensures the animation doesn't reset when you scroll past it */
+    animation-fill-mode: both; 
+    opacity: 0;
+    
+}
+/* 2. Define the movement: Start right, end left */
+@keyframes auto-scroll {
+    /* 0% to 10%: The 'Hidden' phase */
+    0%, 10% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    
+    /* 10% to 35%: The 'Reveal' phase (materializing while sliding) */
+    /* Adjust these % to make the fade faster or slower */
+    25% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+
+    /* 35% to 100%: The 'Locked' phase (staying in center) */
+    100% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
+
+/* MY ACHIEVEMENTS "same demo-reel section" */
+
+.scrolling-text-reverse {
+    font-size: clamp(4rem, 15vw, 12rem);
+    font-weight: 900;
+    white-space: nowrap;
+    text-transform: uppercase;
+    color: white;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-top: 200px; /* Space below the video */
+
+    /* Link to the new REVERSE animation */
+    animation: auto-scroll-reverse linear both;
+    animation-timeline: scroll(root);
+}
+
+@keyframes auto-scroll-reverse {
+    /* 0% to 30%: The 'Delay' phase. The text stays at -100% (hidden left) */
+    0%, 30% {
+        transform: translateX(-100%);
+        opacity: 0; /* Keeps it hidden so it doesn't peek out */
+    }
+    
+    /* The 'Movement' phase. It slides into the center */
+    65% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+
+    /* 60% to 100%: The 'Stop' phase. It stays locked in the center */
+    100% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+
+
+
+
+/* ACHIEVEMENT CERTIFICATE CAROUSEL */
+.certificate-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px; /* INCREASED GAP: Adds more space between the slider and the text */
+    width: 85%;
+    max-width: 1200px;
+    margin: 80px auto; /* More vertical breathing room */
+    padding: 50px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cert-slider {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Spreads arrows to the edges */
+    flex: 1.2; /* Makes the image side slightly larger */
+    position: relative;
+    z-index: 1;
+}
+
+.cert-image-wrapper {
+    flex: 1;
+    margin: 0 30px; /* ADDED MARGIN: Specifically creates a gap between arrows and image */
+    display: flex;
+    justify-content: center;
+}
+
+.cert-image-wrapper img {
+    width: 100%;
+    max-width: 500px;
+    height: 350px;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    
+    /* FIX SCALE DOWN: Explicitly prevent scaling on hover */
+    transform: scale(1) !important; 
+    transition: opacity 0.3s ease-in-out;
+}
+
+
+.cert-description {
+    flex: 1;
+    text-align: left;
+    color: white;
+}
+
+.cert-description h3 {
+    color: #f9004d; /* Your signature pink */
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.cert-description p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+/* Arrow Styling */
+.arrow {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2.5rem; /* Larger arrows look better */
+    cursor: pointer;
+    padding: 10px;
+    transition: color 0.3s, transform 0.2s;
+    z-index: 10;
+    flex-shrink: 0; /* Prevents arrows from shrinking the image */
+}
+
+.arrow:hover {
+    color: #f9004d;
+    transform: scale(1.1); 
+}
+
+#active-cert, #cert-title, #cert-text {
+    opacity: 1; /* Default to visible */
+    transition: opacity 0.3s ease-in-out;
+}
+
+
+/* SEE MORE BELOW DESCRIPTION */
+
+/* See More Button */
+.btn-see-more {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 25px;
+    background: #f9004d;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-see-more:hover {
+    background: white;
+    color: #f9004d;
+}
+
+/* The Modal (Background) */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    cursor: zoom-out; /* Hint to user they can click to exit */
+}
+
+/* Modal Content (The Image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%) scale(0.5); /* Start small for zoom effect */
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    opacity: 0;
+}
+
+.modal.active .modal-content {
+    transform: translateY(-50%) scale(1); /* Smooth zoom to full size */
+    opacity: 1;
+}
+
+/* Close Button */
+.close-modal {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+
+
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 20px;
+  right: 20px;
+  background-color: white;
+  color: #FFF;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 3px #000000;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.whatsapp-float img {
+  width: 35px;
+  height: 35px;
+}
+
+
+
+/* PROJECT section */
+.project{
+	background: #101010;
+	padding: 100px 0px;
+	width: 100%;
+}
+
+.title h2 {
+	color: white;
+	font-size: 75px;
+	width: 1130px;
+	margin: 30px auto;
+	text-align: center;
+
+    display: block;
+    opacity: 0;
+    
+    /* Animation: name, duration, timing-function, delay, fill-mode */
+    animation: h1SlideUp .5s ease-out 0.3s forwards;
+	padding-bottom: 10px;
+}
+
+@keyframes h2SlideUp {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+
+/* MY PROJECTS SECTION  */
+/* Project Page Specifics */
+.project {
+    padding: 100px 0;
+    width: 100%;
+    background: #101010;
+}
+
+.project-header-action {
+    display: flex;
+    justify-content: flex-end; /* Pushes button to the right edge */
+    width: 80%;               /* Matches your project-container width */
+    max-width: 1100px;        /* Matches your project-container max-width */
+    margin: 0 auto 20px auto; /* Centers the container, adds space below */
+    padding: 0;               /* Remove padding to ensure edge-to-edge alignment */
+}
+
+.project-container {
+    width: 80%;
+    max-width: 1100px;
+    margin: 0 auto;
+    background: #191919;
+    border-radius: 30px;
+    padding: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.project-card {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.project-card:last-child {
+    margin-bottom: 0;
+}
+
+.project-img {
+    flex: 1;
+}
+
+.project-img img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.project-info {
+    flex: 1.2;
+}
+
+.project-info h3 {
+    color: white;
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.project-info p {
+    color: #d1a8d1; /* Your requested color */
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.project-divider {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+}
+
+.project .button-two{
+	background-color: #f9004d;
+	color: white;
+	text-decoration: none;
+	border: 2px solid transparent;
+	font-weight: bold;
+	padding: 13px 30px;
+	border-radius: 30px;
+	transition: .4s;
+}
+
+.project .button-two:hover{
+	background-color: transparent;
+	border: 2px solid #f9004d;
+	cursor: pointer;
+}
+
+
+/* PROJECT IMAGE THUMBNAIL GLOWING EFFECT */
+.glow-wrapper {
+    position: relative;
+    padding: 3px;
+    background: transparent;
+    border-radius: 23px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.4s ease;
+}
+
+/* The "Light" that rotates behind the image */
+.glow-wrapper::before {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background: conic-gradient(transparent, #f9004d, transparent, transparent);
+    animation: rotate-glow 4s linear infinite;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.4s ease;
+}
+
+/* Image styling inside the wrapper */
+.project-img img {
+    width: 100%;
+    border-radius: 20px;
+    position: relative;
+    z-index: 2; /* Sits above the rotating light */
+    display: block;
+}
+
+/* --- HOVER STATES --- */
+
+.project-card:hover .glow-wrapper {
+    transform: scale(1.05); /* Slightly scale up */
+}
+
+.project-card:hover .glow-wrapper::before {
+    opacity: 1; /* Reveal the glow on hover */
+}
+
+/* Counter Clockwise Animation */
+@keyframes rotate-glow {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Clean up links */
+.project-link {
+    text-decoration: none;
+    display: block;
+}
