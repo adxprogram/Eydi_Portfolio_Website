@@ -1199,6 +1199,7 @@ html {
     justify-content: center;
     align-items: center;
     transition: transform 0.4s ease;
+    width: 100%; /* Ensures it fills the link area */
 }
 
 /* The "Light" that rotates behind the image */
@@ -1213,6 +1214,11 @@ html {
     transition: opacity 0.4s ease;
 }
 
+.project-img {
+    flex: 1;
+    align-self: flex-start; /* CRITICAL: Prevents vertical stretching */
+}
+
 /* Image styling inside the wrapper */
 .project-img img {
     width: 100%;
@@ -1224,12 +1230,12 @@ html {
 
 /* --- HOVER STATES --- */
 
-.project-card:hover .glow-wrapper {
-    transform: scale(1.05); /* Slightly scale up */
+.project-link:hover .glow-wrapper {
+    transform: scale(1.05);
 }
 
-.project-card:hover .glow-wrapper::before {
-    opacity: 1; /* Reveal the glow on hover */
+.project-link:hover .glow-wrapper::before {
+    opacity: 1;
 }
 
 /* Counter Clockwise Animation */
@@ -1245,5 +1251,7 @@ html {
 /* Clean up links */
 .project-link {
     text-decoration: none;
-    display: block;
+    display: inline-block;  /* Changed from block to inline-block */
+    width: fit-content;
+    height: auto;
 }
