@@ -5,6 +5,15 @@
     font-style: normal;
 }
 
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* This prevents the horizontal scroll/white space */
+    position: relative;
+}
+
+
 body {
     font-family: 'Josefin Sans', sans-serif;
 }
@@ -194,19 +203,21 @@ h4{
 font-size: 20px;	
 }
 
-.newslatter form{
-	width: 380px;
-	max-width: 100%;
-	position: relative;
+.newslatter form {
+    width: 100%;       /* Allow it to shrink */
+    max-width: 380px;  /* Keep the original size on desktop */
+    position: relative;
+    margin: 0 auto;    /* Centers it if needed */
 }
 
-.newslatter form input:first-child{
-	display: inline-block;
-	width: 100%;
-	padding: 14px 130px 14px 15px;
-	border-radius: 30px;
-	border: 2px solid #f9004d;
-	outline: none;
+.newslatter form input:first-child {
+    display: inline-block;
+    width: 100%;
+    padding: 14px 110px 14px 15px; /* Reduced right padding slightly */
+    border-radius: 30px;
+    border: 2px solid #f9004d;
+    outline: none;
+    box-sizing: border-box; /* Ensures padding doesn't add to width */
 }
 
 .newslatter form input:last-child{
@@ -1321,11 +1332,37 @@ html {
     
     /* Adjust Hero Content for mobile */
     h1 {
-        font-size: 45px;
+        font-size: 40px; /* Shrink the title so it doesn't push the width */
+        word-wrap: break-word;
     }
     
     .hero-image {
-        width: 100%;
-        opacity: 0.6; /* Fade back so text is readable */
+            width: 100%;
+            right: -10%; /* If you want it slightly off-screen, ensure overflow-x is hidden */
+    }
+
+    .content {
+        left: 5%;
+        right: 5%; 
+        width: 90%;
+        transform: translateY(-50%); /* Keeps it vertically centered */
+    }
+
+    .contact-me {
+        height: auto;           /* Allow the container to grow with the text */
+        padding: 60px 20px;     /* Give it some breathing room top and bottom */
+        text-align: center;
+    }
+
+    .contact-me p {
+        font-size: 24px;        /* Slightly smaller font to prevent horizontal scrolling */
+        line-height: 1.4;       /* Better spacing for multi-line text */
+        margin-bottom: 30px;
+        width: 100%;            /* Ensure it stays within the screen width */
+    }
+
+    .contact-me .button-two {
+        padding: 12px 25px;     /* Slightly smaller button for mobile ergonomics */
+        font-size: 16px;
     }
 }
