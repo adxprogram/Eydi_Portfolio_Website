@@ -1814,4 +1814,82 @@ html {
     .user span {
         font-size: 12px;
     }
+
+
+    /* PROJECT SECTION project.html MEDIA QUERY*/
+    .project-container {
+        width: 95% !important;   /* Use almost the whole screen width */
+        padding: 20px 15px !important; /* Reduce large desktop padding */
+        border-radius: 20px;
+    }
+    
+    .project-header-action {
+        display: flex !important;
+        justify-content: flex-end !important; 
+        width: 95% !important;
+        margin: 0 auto 10px auto; 
+    }
+    
+    .project .button-two {
+        width: auto !important;       
+        display: inline-flex !important; 
+        align-items: center;
+        justify-content: center;
+        
+        /* Smaller size for mobile (matching your green guide) */
+        font-size: 11px !important;    
+        padding: 6px 15px !important;  
+        border-radius: 20px;
+        
+        /* Reset spacing for alignment */
+        margin-top: 0 !important; 
+        margin-left: auto !important; 
+        margin-right: 0 !important;
+    }
+
+    .project .button-two i {
+        font-size: 12px !important;
+        margin-left: 5px;
+    }
+
+    .project-header {
+        display: flex;
+        flex-direction: column; /* Stacks title and button */
+        align-items: flex-end; /* Pushes the button to the right side */
+        padding-right: 20px;
+    }
+
+    .project-header h2 {
+        align-self: center;    /* Keeps "My Projects" centered */
+        margin-bottom: 15px;
+    }
+
+    /* 2. Project Card: Image first, then Title/Text */
+    .project-card {
+        display: flex;
+        flex-direction: column;     /* Vertical stack */
+        width: 100%;
+        margin: 10px auto;
+        padding: 15px;
+    }
+
+    .project-image {
+        order: 1;                   /* Image on top */
+        width: 100%;
+        height: auto;
+        margin-bottom: 15px;
+    }
+
+    .project-card h3 {
+        order: 2;                   /* Title below image */
+        font-size: 22px !important; /* Smaller Title */
+        margin-bottom: 10px;
+    }
+
+    .project-card p {
+        order: 3;                   /* Description at the bottom */
+        font-size: 14px !important; /* Smaller Description */
+        text-align: justify;
+    }
+
 }
