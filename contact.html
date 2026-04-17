@@ -15,9 +15,17 @@
 		<nav>
 			<div class="logo-container">
 				<a href="index.html">
-				<img class="logo" src="images/header_logo_eydi.svg" alt="Eydi Logo">
+					<img class="logo" src="images/header_logo_eydi.svg" alt="Eydi Logo">
 				</a>
 			</div>
+
+			<input type="checkbox" id="check">
+			<label for="check" class="checkbtn">
+				<span class="bar"></span>
+				<span class="bar"></span>
+				<span class="bar"></span>
+			</label>
+
 			<ul>
 				<li><a href="index.html">Home</a></li>
 				<li><a href="about.html">About</a></li>
@@ -26,11 +34,47 @@
 				<li><a href="contact.html">Contact</a></li>
 			</ul>
 			<a href="mailto:adriandc.santantiago22@email.com" class="btn">Get in touch</a>
-		</nav>	
+		</nav>
 	</div>
 
 	<!-- Contact form section -->
+	<section class="contact-section">
+		<div class="contact-container">
+			<div class="contact-title">
+				<h1>Contact me</h1>
+				<div class="contact-direct">
+					<a href="mailto:adriandc.santantiago22@email.com">adriandc.santantiago22@email.com</a>
+					<p>(+63) 976 576 4144</p>
+				</div>
+			</div>
 
+			<form id="contact-form" action="https://formspree.io/f/mrerpjoo" method="POST" class="contact-form">
+				<div class="form-row">
+					<div class="form-group">
+						<label>First Name</label>
+						<input type="text" name="first-name" required>
+					</div>
+					<div class="form-group">
+						<label>Last Name</label>
+						<input type="text" name="last-name" required>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label>Email (required)</label>
+					<input type="email" name="email" required>
+				</div>
+
+				<div class="form-group">
+					<label>Message (required)</label>
+					<textarea name="message" rows="1" required></textarea>
+				</div>
+
+				<button type="submit" id="submit-btn" class="submit-btn">SUBMIT</button>
+				<p id="form-status"></p>
+			</form>
+		</div>
+	</section>
 	<!-- footer start -->
 	<footer>
 		<p>Adrian Santiago</p>

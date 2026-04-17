@@ -307,3 +307,69 @@ navLinks.forEach(link => {
         checkbox.checked = false;
     }); 
 });
+
+
+
+// CONTACT SECTION contact.html SENT LOGIC
+const contactForm = document.getElementById('contact-form');
+const statusMsg = document.getElementById('form-status');
+const submitBtn = document.getElementById('submit-btn');
+const allInputs = contactForm.querySelectorAll('input, textarea');
+
+contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault(); // Stop page from refreshing
+    
+    submitBtn.innerText = "SENDING...";
+    
+    const data = new FormData(contactForm);
+    
+    try {
+        const response = await fetch(contactForm.action, {
+            method: 'POST',
+            body: data,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            // 1. Success Message
+            statusMsg.innerText = "Thanks! Your message has been sent.";
+            statusMsg.classList.add('success-msg');
+            
+            // 2. Turn Button Green
+            submitBtn.innerText = "SENT!";
+            submitBtn.classList.add('success-btn');
+            
+            // 3. Turn Lines Green
+            allInputs.forEach(input => {
+                input.classList.add('success');
+                input.value = ""; // Clear the form
+            });
+
+        } else {
+            statusMsg.innerText = "Oops! There was a problem sending your message.";
+            statusMsg.classList.add('error-msg');
+            submitBtn.innerText = "SUBMIT";
+        }
+    } catch (error) {
+        statusMsg.innerText = "Error: Could not connect to the server.";
+        statusMsg.classList.add('error-msg');
+        submitBtn.innerText = "SUBMIT";
+    }
+});
+
+allInputs.forEach(input => {
+    input.addEventListener('input', () => {
+        // 1. Remove the green line from the input being typed in
+        input.classList.remove('success');
+        
+        // 2. Reset the button to its original state
+        submitBtn.classList.remove('success-btn');
+        submitBtn.innerText = "SUBMIT";
+        
+        // 3. Hide the success message
+        statusMsg.innerText = "";
+        statusMsg.classList.remove('success-msg');
+    });
+});

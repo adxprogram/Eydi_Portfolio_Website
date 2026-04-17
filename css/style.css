@@ -1,3 +1,9 @@
+/* COLORS:
+f9004d
+101010
+191919
+*/
+
 @font-face {
     font-family: 'Josefin Sans';
     src: url('../fonts/JosefinSans-VariableFont_wght.ttf') format('truetype');
@@ -1299,6 +1305,142 @@ html {
     position: absolute;
 }
 
+
+/* CONTACT SECTION STYLES */
+.contact-section {
+    background-color: #191919; /* Match your site background */
+    padding: 200px 10% 150px 10%;
+    color: white;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-title h1 {
+    font-size: clamp(60px, 10vw, 120px); /* Massive bold text like reference */
+    font-weight: 800;
+    margin-bottom: 40px;
+    line-height: 0.9;
+}
+
+.contact-direct a, .contact-direct p {
+    display: block;
+    color: #ccc;
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+/* Form Styling */
+.contact-form {
+    flex: 1;
+    max-width: 600px;
+}
+
+.contact-form input.success, 
+.contact-form textarea.success {
+    border-bottom: 2px solid #28a745 !important; /* Green line */
+}
+
+/* Green button effect for success */
+.submit-btn.success-btn {
+    background-color: #28a745 !important;
+    border-color: #28a745 !important;
+    pointer-events: none; /* Prevents double clicking */
+}
+
+#form-status {
+    margin-top: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+#form-status.success-msg {
+    color: #28a745;
+}
+
+#form-status.error-msg {
+    color: #f9004d;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 40px;
+    flex: 1;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.contact-form input, 
+.contact-form textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #555; /* Default grey line */
+    padding: 10px 0;
+    color: white;
+    outline: none;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+/* THE RED FOCUS EFFECT */
+.contact-form input:focus, 
+.contact-form textarea:focus {
+    border-bottom: 2px solid #f9004d; /* Changes to red when clicked */
+}
+
+/* THE RED SUBMIT BUTTON */
+.submit-btn {
+    background-color: #f9004d;
+    color: white;
+    border: 2px solid #f9004d;
+    padding: 15px 40px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.4s;
+    margin-top: 20px;
+}
+
+.submit-btn:hover {
+    background-color: transparent;
+    color: #f9004d;
+}
+
+/* Mobile Responsive */
+@media (max-width: 850px) {
+    .contact-container {
+        flex-direction: column;
+    }
+    .contact-title h1 {
+        font-size: 60px;
+    }
+    .form-row {
+        flex-direction: column;
+    }
+}
+
+
+
+
+
 /* MEDIA QUERY */
 /* INDEX.HTML */
 /* --- RESPONSIVE NAVIGATION --- */
@@ -1854,42 +1996,70 @@ html {
 
     .project-header {
         display: flex;
-        flex-direction: column; /* Stacks title and button */
-        align-items: flex-end; /* Pushes the button to the right side */
+        flex-direction: column; 
+        align-items: flex-end; 
         padding-right: 20px;
     }
 
     .project-header h2 {
-        align-self: center;    /* Keeps "My Projects" centered */
+        align-self: center;   
         margin-bottom: 15px;
     }
 
-    /* 2. Project Card: Image first, then Title/Text */
     .project-card {
         display: flex;
-        flex-direction: column;     /* Vertical stack */
+        flex-direction: column;    
         width: 100%;
         margin: 10px auto;
         padding: 15px;
     }
 
     .project-image {
-        order: 1;                   /* Image on top */
+        order: 1;                  
         width: 100%;
         height: auto;
         margin-bottom: 15px;
     }
 
     .project-card h3 {
-        order: 2;                   /* Title below image */
-        font-size: 22px !important; /* Smaller Title */
+        order: 2;                   
+        font-size: 22px !important; 
         margin-bottom: 10px;
     }
 
     .project-card p {
-        order: 3;                   /* Description at the bottom */
-        font-size: 14px !important; /* Smaller Description */
+        order: 3;                   
+        font-size: 14px !important; 
         text-align: justify;
+    }
+
+
+    /* CONTACT SECTION | contact.html Media Query */
+    .contact-title h1 {
+        font-size: 75px !important; /* Larger size to match reference */
+        line-height: 0.85;           /* Tighter spacing between words */
+        margin-bottom: 25px !important;
+        text-align: left;
+        padding-top: 100px;
+    }
+
+    /* 2. Shrink the email and phone number */
+    .contact-direct a, 
+    .contact-direct p {
+        font-size: 14px !important; /* Smaller, secondary look */
+        color: #888 !important;     /* Dimmed color so it doesn't compete with the title */
+        margin-bottom: 5px !important;
+        letter-spacing: 0.5px;
+    }
+
+    /* 3. Adjust section padding for mobile breathing room */
+    .contact-section {
+        padding: 60px 20px !important;
+    }
+
+    /* 4. Ensure the form fields have enough space below the header */
+    .contact-form {
+        margin-top: 40px !important;
     }
 
 }
